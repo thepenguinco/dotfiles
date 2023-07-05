@@ -1,0 +1,22 @@
+[options]
+font = Roboto Mono 8
+
+[colors]
+foreground = #cccccc
+background = rgba(12, 12, 12, 0.7)
+color0 = #000000
+color1 = #f17779
+color2 = #99cc99
+color3 = #ffcc66
+color4 = #6699cc
+color5 = #cc99cc
+color6 = #66cccc
+color7 = #fffefe
+color8 = #808080
+color9 = #f17779
+color10 = #99cc99
+color11 = #ffcc66
+color12 = #6699cc
+color13 = #cc99cc
+color14 = #66cccc
+color15 = #fffefe

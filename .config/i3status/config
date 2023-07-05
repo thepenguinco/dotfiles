@@ -1,0 +1,85 @@
+general {
+	output_format = "i3bar"
+	colors = true
+	interval = 1
+	color_good = "#77FF77"
+	color_degraded = "#FFCC66"
+	color_bad = "#F25557"
+}
+
+order += "volume master"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "ipv6"
+order += "wireless wlp2s0"
+order += "ethernet enp0s31f6"
+order += "ethernet tun0"
+order += "ethernet wg0"
+order += "battery 0"
+order += "tztime local"
+
+volume master {
+	format = "%volume"
+	format_muted = "M%volume"
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+}
+
+cpu_temperature 0 {
+	format = "%degreesC"
+	max_threshold = 80
+	path = "/sys/bus/platform/devices/coretemp.0/hwmon/*/temp1_input"
+}
+
+cpu_usage {
+	max_threshold = 75
+	degraded_threshold = 50
+	format = "%usage"
+}
+
+disk "/" {
+	format = "%avail"
+}
+
+ipv6 {
+	format_up = "6"
+	format_down = "6"
+}
+
+wireless wlp2s0 {
+	format_up = "W%quality %essid %frequency %bitrate %ip"
+	format_down = "W"
+}
+
+ethernet enp0s31f6 {
+	format_up = "E %ip %speed"
+	format_down = "E"
+}
+
+ethernet tun0 {
+	format_up = "V %ip"
+	format_down = "V"
+}
+
+ethernet wg0 {
+	format_up = "W %ip"
+	format_down = "W"
+}
+
+battery 0 {
+	format = "%status %percentage %consumption %remaining"
+	format_down = "No bat"
+	status_chr = "C"
+	status_bat = "B"
+	status_full = "F"
+	status_unk = "N"
+	path = "/sys/class/power_supply/BAT%d/uevent"
+	low_threshold = 10
+	last_full_capacity = true
+}
+
+tztime local {
+	format = "%a %b %d %Y %H:%M:%S"
+}
